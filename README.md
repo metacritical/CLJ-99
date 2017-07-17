@@ -11,24 +11,24 @@ Prolog problem list by werner.hett@hti.bfh.ch
 
 #### P01 (*) Find the last box of a list.
 Example:
-```lisp
+```clojure
  (my-last '(a b c d)) 
 ```
-```lisp
+```clojure
  (D) 
 ```
 #### P02 (*) Find the last but one box of a list.
 Example:
-```lisp
+```clojure
  (my-but-last '(a b c d)) 
 ```
-```lisp
+```clojure
  (C D) 
 ```
 #### P03 (*) Find the K'th element of a list.
 The first element in the list is number 1.
 Example:
-```lisp
+```clojure
  (element-at '(a b c d e) 3) 
 ```
 C
@@ -40,10 +40,10 @@ A palindrome can be read forward or backward; e.g. (x a m a x).
 Transform a list, possibly holding lists as elements into a `flat' list by replacing each list with its elements (recursively).
 
 Example:
-```lisp
+```clojure
  (my-flatten '(a (b (c d) e))) 
 ```
-```lisp
+```clojure
  (A B C D E) 
 ```
 
@@ -52,40 +52,40 @@ Hint: Use the predefined functions list and append.
 If a list contains repeated elements they should be replaced with a single copy of the element. The order of the elements should not be changed.
 
 Example:
-```lisp
+```clojure
  (compress '(a a a a b c c a a d e e e e)) 
 ```
-```lisp
+```clojure
  (A B C A D E) 
 ```
 #### P09 (**) Pack consecutive duplicates of list elements into sublists.
 If a list contains repeated elements they should be placed in separate sublists.
 
 Example:
-```lisp
+```clojure
  (pack '(a a a a b c c a a d e e e e)) 
 ```
-```lisp
+```clojure
  ((A A A A) (B) (C C) (A A) (D) (E E E E)) 
 ```
 #### P10 (*) Run-length encoding of a list.
 Use the result of problem P09 to implement the so-called run-length encoding data compression method. Consecutive duplicates of elements are encoded as lists (N E) where N is the number of duplicates of the element E.
 
 Example:
-```lisp
+```clojure
  (encode '(a a a a b c c a a d e e e e)) 
 ```
-```lisp
+```clojure
  ((4 A) (1 B) (2 C) (2 A) (1 D)(4 E)) 
 ```
 #### P11 (*) Modified run-length encoding.
 Modify the result of problem P10 in such a way that if an element has no duplicates it is simply copied into the result list. Only elements with duplicates are transferred as (N E) lists.
 
 Example:
-```lisp
+```clojure
  (encode-modified '(a a a a b c c a a d e e e e)) 
 ```
-```lisp
+```clojure
  ((4 A) B (2 C) (2 A) D (4 E)) 
 ```
 #### P12 (**) Decode a run-length encoded list.
@@ -94,106 +94,106 @@ Given a run-length code list generated as specified in problem P11. Construct it
 Implement the so-called run-length encoding data compression method directly. I.e. don't explicitly create the sublists containing the duplicates, as in problem P09, but only count them. As in problem P11, simplify the result list by replacing the singleton lists (1 X) by X.
 
 Example:
-```lisp
+```clojure
  (encode-direct '(a a a a b c c a a d e e e e)) 
 ```
-```lisp
+```clojure
  ((4 A) B (2 C) (2 A) D (4 E)) 
 ```
 #### P14 (*) Duplicate the elements of a list.
 Example:
-```lisp
+```clojure
  (dupli '(a b c c d)) 
 ```
-```lisp
+```clojure
  (A A B B C C C C D D) 
 ```
 #### P15 (**) Replicate the elements of a list a given number of times.
 Example:
-```lisp
+```clojure
  (repli '(a b c) 3) 
 ```
-```lisp
+```clojure
  (A A A B B B C C C) 
 ```
 
 #### P16 (**) Drop every N'th element from a list.
 Example:
-```lisp
+```clojure
  (drop '(a b c d e f g h i k) 3) 
 ```
-```lisp
+```clojure
  (A B D E G H K) 
 ```
 #### P17 (*) Split a list into two parts; the length of the first part is given.
 Do not use any predefined predicates.
 
 Example:
-```lisp
+```clojure
  (split '(a b c d e f g h i k) 3) 
 ```
-```lisp
+```clojure
  ( (A B C) (D E F G H I K)) 
 ```
 #### P18 (**) Extract a slice from a list.
 Given two indices, I and K, the slice is the list containing the elements between the I'th and K'th element of the original list (both limits included). Start counting the elements with 1.
 
 Example:
-```lisp
+```clojure
  (slice '(a b c d e f g h i k) 3 7) 
 ```
-```lisp
+```clojure
  (C D E F G) 
 ```
 #### P19 (**) Rotate a list N places to the left.
 Examples:
-```lisp
+```clojure
  (rotate '(a b c d e f g h) 3) 
 ```
-```lisp
+```clojure
  (D E F G H A B C) 
 ```
 
-```lisp
+```clojure
  (rotate '(a b c d e f g h) -2) 
 ```
-```lisp
+```clojure
  (G H A B C D E F) 
 ```
 
 Hint: Use the predefined functions length and append, as well as the result of problem P17.
 #### P20 (*) Remove the K'th element from a list.
 Example:
-```lisp
+```clojure
  (remove-at '(a b c d) 2) 
 ```
-```lisp
+```clojure
  (A C D) 
 ```
 #### P21 (*) Insert an element at a given position into a list.
 Example:
-```lisp
+```clojure
  (insert-at 'alfa '(a b c d) 2) 
 ```
-```lisp
+```clojure
  (A ALFA B C D) 
 ```
 #### P22 (*) Create a list containing all integers within a given range.
 If first argument is smaller than second, produce a list in decreasing order.
 Example:
-```lisp
+```clojure
  (range 4 9) 
 ```
-```lisp
+```clojure
  (4 5 6 7 8 9) 
 ```
 #### P23 (**) Extract a given number of randomly selected elements from a list.
 The selected items shall be returned in a list.
 Example:
-```lisp
+```clojure
  (rnd-select '(a b c d e f g h) 3) 
 ```
-```lisp
+```clojure
  (E D A) 
 ```
 
@@ -201,20 +201,20 @@ Hint: Use the built-in random number generator and the result of problem P20.
 #### P24 (*) Lotto: Draw N different random numbers from the set 1..M.
 The selected numbers shall be returned in a list.
 Example:
-```lisp
+```clojure
  (lotto-select 6 49) 
 ```
-```lisp
+```clojure
  (23 1 17 33 21 37) 
 ```
 
 Hint: Combine the solutions of problems P22 and P23.
 #### P25 (*) Generate a random permutation of the elements of a list.
 Example:
-```lisp
+```clojure
  (rnd-permu '(a b c d e f)) 
 ```
-```lisp
+```clojure
  (B A D C E F) 
 ```
 
@@ -223,20 +223,20 @@ Hint: Use the solution of problem P23.
 In how many ways can a committee of 3 be chosen from a group of 12 people? We all know that there are C(12,3) = 220 possibilities (C(N,K) denotes the well-known binomial coefficients). For pure mathematicians, this result may be great. But we want to really generate all the possibilities in a list.
 
 Example:
-```lisp
+```clojure
  (combination 3 '(a b c d e f)) 
 ```
-```lisp
+```clojure
  ((A B C) (A B D) (A B E) ... ) 
 ```
 #### P27 (**) Group the elements of a set into disjoint subsets.
 a) In how many ways can a group of 9 people work in 3 disjoint subgroups of 2, 3 and 4 persons? Write a function that generates all the possibilities and returns them in a list.
 
 Example:
-```lisp
+```clojure
  (group3 '(aldo beat carla david evi flip gary hugo ida)) 
 ```
-```lisp
+```clojure
  ( ( (ALDO BEAT) (CARLA DAVID EVI) (FLIP GARY HUGO IDA) ) 
 ```
 ... )
@@ -244,10 +244,10 @@ Example:
 b) Generalize the above predicate in a way that we can specify a list of group sizes and the predicate will return a list of groups.
 
 Example:
-```lisp
+```clojure
  (group '(aldo beat carla david evi flip gary hugo ida) '(2 2 5)) 
 ```
-```lisp
+```clojure
  ( ( (ALDO BEAT) (CARLA DAVID) (EVI FLIP GARY HUGO IDA) ) 
 ```
 ... )
@@ -259,20 +259,20 @@ You may find more about this combinatorial problem in a good book on discrete ma
 a) We suppose that a list contains elements that are lists themselves. The objective is to sort the elements of this list according to their length. E.g. short lists first, longer lists later, or vice versa.
 
 Example:
-```lisp
+```clojure
  (lsort '((a b c) (d e) (f g h) (d e) (i j k l) (m n) (o))) 
 ```
-```lisp
+```clojure
  ((O) (D E) (D E) (M N) (A B C) (F G H) (I J K L)) 
 ```
 
 b) Again, we suppose that a list contains elements that are lists themselves. But this time the objective is to sort the elements of this list according to their length frequency; i.e., in the default, where sorting is done ascendingly, lists with rare lengths are placed first, others with a more frequent length come later.
 
 Example:
-```lisp
+```clojure
  (lfsort '((a b c) (d e) (f g h) (d e) (i j k l) (m n) (o))) 
 ```
-```lisp
+```clojure
  ((i j k l) (o) (a b c) (f g h) (d e) (d e) (m n)) 
 ```
 
@@ -281,21 +281,21 @@ Arithmetic
 
 #### P31 (**) Determine whether a given integer number is prime.
 Example:
-```lisp
+```clojure
  (is-prime 7) 
 ```
 T
 #### P32 (**) Determine the greatest common divisor of two positive integer numbers.
 Use Euclid's algorithm.
 Example:
-```lisp
+```clojure
  (gcd 36 63) 
 ```
 9
 #### P33 (*) Determine whether two positive integer numbers are coprime.
 Two numbers are coprime if their greatest common divisor equals 1.
 Example:
-```lisp
+```clojure
  (coprime 35 64) 
 ```
 T
@@ -303,7 +303,7 @@ T
 Euler's so-called totient function phi(m) is defined as the number of positive integers r (1 <= r < m) that are coprime to m.
 Example: m = 10: r = 1,3,7,9; thus phi(m) = 4. Note the special case: phi(1) = 1.
 
-```lisp
+```clojure
  (totient-phi 10) 
 ```
 4
@@ -313,19 +313,19 @@ Find out what the value of phi(m) is if m is a prime number. Euler's totient fun
 #### P35 (**) Determine the prime factors of a given positive integer.
 Construct a flat list containing the prime factors in ascending order.
 Example:
-```lisp
+```clojure
  (prime-factors 315) 
 ```
-```lisp
+```clojure
  (3 3 5 7) 
 ```
 #### P36 (**) Determine the prime factors of a given positive integer (2).
 Construct a list containing the prime factors and their multiplicity.
 Example:
-```lisp
+```clojure
  (prime-factors-mult 315) 
 ```
-```lisp
+```clojure
  ((3 2) (5 1) (7 1)) 
 ```
 Hint: The problem is similar to problem P13.
@@ -343,17 +343,17 @@ Given a range of integers by its lower and upper limit, construct a list of all 
 #### P40 (**) Goldbach's conjecture.
 Goldbach's conjecture says that every positive even number greater than 2 is the sum of two prime numbers. Example: 28 = 5 + 23. It is one of the most famous facts in number theory that has not been proved to be correct in the general case. It has been numerically confirmed up to very large numbers (much larger than we can go with our Prolog system). Write a predicate to find the two prime numbers that sum up to a given even integer.
 Example:
-```lisp
+```clojure
  (goldbach 28) 
 ```
-```lisp
+```clojure
  (5 23) 
 ```
 
 #### P41 (**) A list of Goldbach compositions.
 Given a range of integers by its lower and upper limit, print a list of all even numbers and their Goldbach composition.
 Example:
-```lisp
+```clojure
  (goldbach-list 9 20) 
 ```
 10 = 3 + 7
@@ -366,7 +366,7 @@ Example:
 In most cases, if an even number is written as the sum of two prime numbers, one of them is very small. Very rarely, the primes are both bigger than say 50. Try to find out how many such cases there are in the range 2..3000.
 
 Example (for a print limit of 50):
-```lisp
+```clojure
  (goldbach-list 1 2000 50) 
 ```
 992 = 73 + 919
@@ -383,7 +383,7 @@ A logical expression in two variables can then be written in prefix notation, as
 Now, write a predicate table/3 which prints the truth table of a given logical expression in two variables.
 
 Example:
-```lisp
+```clojure
  table(A,B,and(A,or(A,B))). 
 ```
 true true true
@@ -394,7 +394,7 @@ fail fail fail
 #### P47 (*) Truth tables for logical expressions (2).
 Continue problem P46 by defining and/2, or/2, etc as being operators. This allows to write the logical expression in the more natural way, as in the example: A and (A or not B). Define operator precedence as usual; i.e. as in Java.
 Example:
-```lisp
+```clojure
  table(A,B, A and (A or not B)). 
 ```
 true true true
@@ -405,7 +405,7 @@ fail fail fail
 #### P48 (**) Truth tables for logical expressions (3).
 Generalize problem P47 in such a way that the logical expression may contain any number of logical variables. Define table/2 in a way that table(List,Expr) prints the truth table for the expression Expr, which contains the logical variables enumerated in List.
 Example:
-```lisp
+```clojure
  table([A,B,C], A and (B or C) equ A and B or A and C). 
 ```
 true true true true
@@ -450,11 +450,11 @@ You can check your predicates using these example trees. They are given as test 
 #### P54A (*) Check whether a given term represents a binary tree
 Write a predicate istree which returns true if and only if its argument is a list representing a binary tree.
 Example:
-```lisp
+```clojure
  (istree (a (b nil nil) nil)) 
 ```
 T
-```lisp
+```clojure
  (istree (a (b nil nil))) 
 ```
 NIL
@@ -463,7 +463,7 @@ In a completely balanced binary tree, the following property holds for every nod
 
 Write a function cbal-tree to construct completely balanced binary trees for a given number of nodes. The predicate should generate all solutions via backtracking. Put the letter 'x' as information into all nodes of the tree.
 Example:
-```lisp
+```clojure
  cbal-tree(4,T). 
 ```
 T = t(x, t(x, nil, nil), t(x, nil, t(x, nil, nil))) ;
@@ -474,24 +474,24 @@ Let us call a binary tree symmetric if you can draw a vertical line through the 
 #### P57 (**) Binary search trees (dictionaries)
 Use the predicate add/3, developed in chapter 4 of the course, to write a predicate to construct a binary search tree from a list of integer numbers.
 Example:
-```lisp
+```clojure
  construct([3,2,5,7,1],T). 
 ```
 T = t(3, t(2, t(1, nil, nil), nil), t(5, nil, t(7, nil, nil)))
 
 Then use this predicate to test the solution of the problem P56.
 Example:
-```lisp
+```clojure
  test-symmetric([5,3,18,1,4,12,21]). 
 ```
 Yes
-```lisp
+```clojure
  test-symmetric([3,2,5,7,1]). 
 ```
 No
 #### P58 (**) Generate-and-test paradigm
 Apply the generate-and-test paradigm to construct all symmetric, completely balanced binary trees with a given number of nodes. Example:
-```lisp
+```clojure
  sym-cbal-trees(5,Ts). 
 ```
 Ts = [t(x, t(x, nil, t(x, nil, nil)), t(x, t(x, nil, nil), nil)), t(x, t(x, t(x, nil, nil), nil), t(x, nil, t(x, nil, nil)))] 
@@ -502,7 +502,7 @@ In a height-balanced binary tree, the following property holds for every node: T
 
 Write a predicate hbal-tree/2 to construct height-balanced binary trees for a given height. The predicate should generate all solutions via backtracking. Put the letter 'x' as information into all nodes of the tree.
 Example:
-```lisp
+```clojure
  hbal-tree(3,T). 
 ```
 T = t(x, t(x, t(x, nil, nil), t(x, nil, nil)), t(x, t(x, nil, nil), t(x, nil, nil))) ;
@@ -513,14 +513,14 @@ Consider a height-balanced binary tree of height H. What is the maximum number o
 Clearly, MaxN = 2**H - 1. However, what is the minimum number MinN? This question is more difficult. Try to find a recursive statement and turn it into a predicate minNodes/2 defined as follwos:
 
 % minNodes(H,N) :- N is the minimum number of nodes in a height-balanced binary tree of height H.
-```lisp
+```clojure
  (integer,integer), (+,?) 
 ```
 
 On the other hand, we might ask: what is the maximum height H a height-balanced binary tree with N nodes can have?
 
 % maxHeight(N,H) :- H is the maximum height of a height-balanced binary tree with N nodes
-```lisp
+```clojure
  (integer,integer), (+,?) 
 ```
 
@@ -622,7 +622,7 @@ T = t(a,[t(f,[t(g,[])]),t(c,[]),t(b,[t(d,[]),t(e,[])])])
 #### P70B (*) Check whether a given term represents a multiway tree
 Write a predicate istree/1 which succeeds if and only if its argument is a Prolog term representing a multiway tree.
 Example:
-```lisp
+```clojure
  istree(t(a,[t(f,[t(g,[])]),t(c,[]),t(b,[t(d,[]),t(e,[])])])). 
 ```
 Yes
@@ -630,7 +630,7 @@ Yes
 #### P70C (*) Count the nodes of a multiway tree
 Write a predicate nnodes/1 which counts the nodes of a given multiway tree.
 Example:
-```lisp
+```clojure
  nnodes(t(a,[t(f,[])]),N). 
 ```
 N = 2
@@ -655,7 +655,7 @@ The following pictures show how multiway tree structures are represented in Lisp
 Note that in the "lispy" notation a node with successors (children) in the tree is always the first element in a list, followed by its children. The "lispy" representation of a multiway tree is a sequence of atoms and parentheses '(' and ')', which we shall collectively call "tokens". We can represent this sequence of tokens as a Prolog list; e.g. the lispy expression (a (b c)) could be represented as the Prolog list ['(', a, '(', b, c, ')', ')']. Write a predicate tree-ltl(T,LTL) which constructs the "lispy token list" LTL if the tree is given as term T in the usual Prolog notation.
 
 Example:
-```lisp
+```clojure
  tree-ltl(t(a,[t(b,[]),t(c,[])]),LTL). 
 ```
 LTL = ['(', a, '(', b, c, ')', ')']
