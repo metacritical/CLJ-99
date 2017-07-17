@@ -12,11 +12,11 @@ Prolog problem list by werner.hett@hti.bfh.ch
 #### P01 (*) Find the last box of a list.
 Example:
 ``` (my-last '(a b c d)) ```
-(D)
+``` (D) ```
 #### P02 (*) Find the last but one box of a list.
 Example:
 ``` (my-but-last '(a b c d)) ```
-(C D)
+``` (C D) ```
 #### P03 (*) Find the K'th element of a list.
 The first element in the list is number 1.
 Example:
@@ -31,7 +31,7 @@ Transform a list, possibly holding lists as elements into a `flat' list by repla
 
 Example:
 ``` (my-flatten '(a (b (c d) e))) ```
-(A B C D E)
+``` (A B C D E) ```
 
 Hint: Use the predefined functions list and append.
 #### P08 (**) Eliminate consecutive duplicates of list elements.
@@ -39,25 +39,25 @@ If a list contains repeated elements they should be replaced with a single copy 
 
 Example:
 ``` (compress '(a a a a b c c a a d e e e e)) ```
-(A B C A D E)
+``` (A B C A D E) ```
 #### P09 (**) Pack consecutive duplicates of list elements into sublists.
 If a list contains repeated elements they should be placed in separate sublists.
 
 Example:
 ``` (pack '(a a a a b c c a a d e e e e)) ```
-((A A A A) (B) (C C) (A A) (D) (E E E E))
+``` ((A A A A) (B) (C C) (A A) (D) (E E E E)) ```
 #### P10 (*) Run-length encoding of a list.
 Use the result of problem P09 to implement the so-called run-length encoding data compression method. Consecutive duplicates of elements are encoded as lists (N E) where N is the number of duplicates of the element E.
 
 Example:
 ``` (encode '(a a a a b c c a a d e e e e)) ```
-((4 A) (1 B) (2 C) (2 A) (1 D)(4 E))
+``` ((4 A) (1 B) (2 C) (2 A) (1 D)(4 E)) ```
 #### P11 (*) Modified run-length encoding.
 Modify the result of problem P10 in such a way that if an element has no duplicates it is simply copied into the result list. Only elements with duplicates are transferred as (N E) lists.
 
 Example:
 ``` (encode-modified '(a a a a b c c a a d e e e e)) ```
-((4 A) B (2 C) (2 A) D (4 E))
+``` ((4 A) B (2 C) (2 A) D (4 E)) ```
 #### P12 (**) Decode a run-length encoded list.
 Given a run-length code list generated as specified in problem P11. Construct its uncompressed version.
 #### P13 (**) Run-length encoding of a list (direct solution).
@@ -65,72 +65,72 @@ Implement the so-called run-length encoding data compression method directly. I.
 
 Example:
 ``` (encode-direct '(a a a a b c c a a d e e e e)) ```
-((4 A) B (2 C) (2 A) D (4 E))
+``` ((4 A) B (2 C) (2 A) D (4 E)) ```
 #### P14 (*) Duplicate the elements of a list.
 Example:
 ``` (dupli '(a b c c d)) ```
-(A A B B C C C C D D)
+``` (A A B B C C C C D D) ```
 #### P15 (**) Replicate the elements of a list a given number of times.
 Example:
 ``` (repli '(a b c) 3) ```
-(A A A B B B C C C)
+``` (A A A B B B C C C) ```
 
 #### P16 (**) Drop every N'th element from a list.
 Example:
 ``` (drop '(a b c d e f g h i k) 3) ```
-(A B D E G H K)
+``` (A B D E G H K) ```
 #### P17 (*) Split a list into two parts; the length of the first part is given.
 Do not use any predefined predicates.
 
 Example:
 ``` (split '(a b c d e f g h i k) 3) ```
-( (A B C) (D E F G H I K))
+``` ( (A B C) (D E F G H I K)) ```
 #### P18 (**) Extract a slice from a list.
 Given two indices, I and K, the slice is the list containing the elements between the I'th and K'th element of the original list (both limits included). Start counting the elements with 1.
 
 Example:
 ``` (slice '(a b c d e f g h i k) 3 7) ```
-(C D E F G)
+``` (C D E F G) ```
 #### P19 (**) Rotate a list N places to the left.
 Examples:
 ``` (rotate '(a b c d e f g h) 3) ```
-(D E F G H A B C)
+``` (D E F G H A B C) ```
 
 ``` (rotate '(a b c d e f g h) -2) ```
-(G H A B C D E F)
+``` (G H A B C D E F) ```
 
 Hint: Use the predefined functions length and append, as well as the result of problem P17.
 #### P20 (*) Remove the K'th element from a list.
 Example:
 ``` (remove-at '(a b c d) 2) ```
-(A C D)
+``` (A C D) ```
 #### P21 (*) Insert an element at a given position into a list.
 Example:
 ``` (insert-at 'alfa '(a b c d) 2) ```
-(A ALFA B C D)
+``` (A ALFA B C D) ```
 #### P22 (*) Create a list containing all integers within a given range.
 If first argument is smaller than second, produce a list in decreasing order.
 Example:
 ``` (range 4 9) ```
-(4 5 6 7 8 9)
+``` (4 5 6 7 8 9) ```
 #### P23 (**) Extract a given number of randomly selected elements from a list.
 The selected items shall be returned in a list.
 Example:
 ``` (rnd-select '(a b c d e f g h) 3) ```
-(E D A)
+``` (E D A) ```
 
 Hint: Use the built-in random number generator and the result of problem P20.
 #### P24 (*) Lotto: Draw N different random numbers from the set 1..M.
 The selected numbers shall be returned in a list.
 Example:
 ``` (lotto-select 6 49) ```
-(23 1 17 33 21 37)
+``` (23 1 17 33 21 37) ```
 
 Hint: Combine the solutions of problems P22 and P23.
 #### P25 (*) Generate a random permutation of the elements of a list.
 Example:
 ``` (rnd-permu '(a b c d e f)) ```
-(B A D C E F)
+``` (B A D C E F) ```
 
 Hint: Use the solution of problem P23.
 #### P26 (**) Generate the combinations of K distinct objects chosen from the N elements of a list
@@ -138,20 +138,20 @@ In how many ways can a committee of 3 be chosen from a group of 12 people? We al
 
 Example:
 ``` (combination 3 '(a b c d e f)) ```
-((A B C) (A B D) (A B E) ... )
+``` ((A B C) (A B D) (A B E) ... ) ```
 #### P27 (**) Group the elements of a set into disjoint subsets.
 a) In how many ways can a group of 9 people work in 3 disjoint subgroups of 2, 3 and 4 persons? Write a function that generates all the possibilities and returns them in a list.
 
 Example:
 ``` (group3 '(aldo beat carla david evi flip gary hugo ida)) ```
-( ( (ALDO BEAT) (CARLA DAVID EVI) (FLIP GARY HUGO IDA) )
+``` ( ( (ALDO BEAT) (CARLA DAVID EVI) (FLIP GARY HUGO IDA) ) ```
 ... )
 
 b) Generalize the above predicate in a way that we can specify a list of group sizes and the predicate will return a list of groups.
 
 Example:
 ``` (group '(aldo beat carla david evi flip gary hugo ida) '(2 2 5)) ```
-( ( (ALDO BEAT) (CARLA DAVID) (EVI FLIP GARY HUGO IDA) )
+``` ( ( (ALDO BEAT) (CARLA DAVID) (EVI FLIP GARY HUGO IDA) ) ```
 ... )
 
 Note that we do not want permutations of the group members; i.e. ((ALDO BEAT) ...) is the same solution as ((BEAT ALDO) ...). However, we make a difference between ((ALDO BEAT) (CARLA DAVID) ...) and ((CARLA DAVID) (ALDO BEAT) ...).
@@ -162,13 +162,13 @@ a) We suppose that a list contains elements that are lists themselves. The objec
 
 Example:
 ``` (lsort '((a b c) (d e) (f g h) (d e) (i j k l) (m n) (o))) ```
-((O) (D E) (D E) (M N) (A B C) (F G H) (I J K L))
+``` ((O) (D E) (D E) (M N) (A B C) (F G H) (I J K L)) ```
 
 b) Again, we suppose that a list contains elements that are lists themselves. But this time the objective is to sort the elements of this list according to their length frequency; i.e., in the default, where sorting is done ascendingly, lists with rare lengths are placed first, others with a more frequent length come later.
 
 Example:
 ``` (lfsort '((a b c) (d e) (f g h) (d e) (i j k l) (m n) (o))) ```
-((i j k l) (o) (a b c) (f g h) (d e) (d e) (m n))
+``` ((i j k l) (o) (a b c) (f g h) (d e) (d e) (m n)) ```
 
 Note that in the above example, the first two lists in the result have length 4 and 1, both lengths appear just once. The third and forth list have length 3 which appears twice (there are two list of this length). And finally, the last three lists have length 2. This is the most frequent length.
 Arithmetic
@@ -200,12 +200,12 @@ Find out what the value of phi(m) is if m is a prime number. Euler's totient fun
 Construct a flat list containing the prime factors in ascending order.
 Example:
 ``` (prime-factors 315) ```
-(3 3 5 7)
+``` (3 3 5 7) ```
 #### P36 (**) Determine the prime factors of a given positive integer (2).
 Construct a list containing the prime factors and their multiplicity.
 Example:
 ``` (prime-factors-mult 315) ```
-((3 2) (5 1) (7 1))
+``` ((3 2) (5 1) (7 1)) ```
 Hint: The problem is similar to problem P13.
 
 #### P37 (**) Calculate Euler's totient function phi(m) (improved).
@@ -222,7 +222,7 @@ Given a range of integers by its lower and upper limit, construct a list of all 
 Goldbach's conjecture says that every positive even number greater than 2 is the sum of two prime numbers. Example: 28 = 5 + 23. It is one of the most famous facts in number theory that has not been proved to be correct in the general case. It has been numerically confirmed up to very large numbers (much larger than we can go with our Prolog system). Write a predicate to find the two prime numbers that sum up to a given even integer.
 Example:
 ``` (goldbach 28) ```
-(5 23)
+``` (5 23) ```
 
 #### P41 (**) A list of Goldbach compositions.
 Given a range of integers by its lower and upper limit, print a list of all even numbers and their Goldbach composition.
@@ -361,12 +361,12 @@ Consider a height-balanced binary tree of height H. What is the maximum number o
 Clearly, MaxN = 2**H - 1. However, what is the minimum number MinN? This question is more difficult. Try to find a recursive statement and turn it into a predicate minNodes/2 defined as follwos:
 
 % minNodes(H,N) :- N is the minimum number of nodes in a height-balanced binary tree of height H.
-(integer,integer), (+,?)
+``` (integer,integer), (+,?) ```
 
 On the other hand, we might ask: what is the maximum height H a height-balanced binary tree with N nodes can have?
 
 % maxHeight(N,H) :- H is the maximum height of a height-balanced binary tree with N nodes
-(integer,integer), (+,?)
+``` (integer,integer), (+,?) ```
 
 Now, we can attack the main problem: construct all the height-balanced binary trees with a given nuber of nodes.
 
