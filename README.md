@@ -11,16 +11,26 @@ Prolog problem list by werner.hett@hti.bfh.ch
 
 #### P01 (*) Find the last box of a list.
 Example:
-```lisp\n (my-last '(a b c d)) ```
-```lisp\n (D) ```
+```lisp
+ (my-last '(a b c d)) 
+```
+```lisp
+ (D) 
+```
 #### P02 (*) Find the last but one box of a list.
 Example:
-```lisp\n (my-but-last '(a b c d)) ```
-```lisp\n (C D) ```
+```lisp
+ (my-but-last '(a b c d)) 
+```
+```lisp
+ (C D) 
+```
 #### P03 (*) Find the K'th element of a list.
 The first element in the list is number 1.
 Example:
-```lisp\n (element-at '(a b c d e) 3) ```
+```lisp
+ (element-at '(a b c d e) 3) 
+```
 C
 #### P04 (*) Find the number of elements of a list.
 #### P05 (*) Reverse a list.
@@ -30,128 +40,216 @@ A palindrome can be read forward or backward; e.g. (x a m a x).
 Transform a list, possibly holding lists as elements into a `flat' list by replacing each list with its elements (recursively).
 
 Example:
-```lisp\n (my-flatten '(a (b (c d) e))) ```
-```lisp\n (A B C D E) ```
+```lisp
+ (my-flatten '(a (b (c d) e))) 
+```
+```lisp
+ (A B C D E) 
+```
 
 Hint: Use the predefined functions list and append.
 #### P08 (**) Eliminate consecutive duplicates of list elements.
 If a list contains repeated elements they should be replaced with a single copy of the element. The order of the elements should not be changed.
 
 Example:
-```lisp\n (compress '(a a a a b c c a a d e e e e)) ```
-```lisp\n (A B C A D E) ```
+```lisp
+ (compress '(a a a a b c c a a d e e e e)) 
+```
+```lisp
+ (A B C A D E) 
+```
 #### P09 (**) Pack consecutive duplicates of list elements into sublists.
 If a list contains repeated elements they should be placed in separate sublists.
 
 Example:
-```lisp\n (pack '(a a a a b c c a a d e e e e)) ```
-```lisp\n ((A A A A) (B) (C C) (A A) (D) (E E E E)) ```
+```lisp
+ (pack '(a a a a b c c a a d e e e e)) 
+```
+```lisp
+ ((A A A A) (B) (C C) (A A) (D) (E E E E)) 
+```
 #### P10 (*) Run-length encoding of a list.
 Use the result of problem P09 to implement the so-called run-length encoding data compression method. Consecutive duplicates of elements are encoded as lists (N E) where N is the number of duplicates of the element E.
 
 Example:
-```lisp\n (encode '(a a a a b c c a a d e e e e)) ```
-```lisp\n ((4 A) (1 B) (2 C) (2 A) (1 D)(4 E)) ```
+```lisp
+ (encode '(a a a a b c c a a d e e e e)) 
+```
+```lisp
+ ((4 A) (1 B) (2 C) (2 A) (1 D)(4 E)) 
+```
 #### P11 (*) Modified run-length encoding.
 Modify the result of problem P10 in such a way that if an element has no duplicates it is simply copied into the result list. Only elements with duplicates are transferred as (N E) lists.
 
 Example:
-```lisp\n (encode-modified '(a a a a b c c a a d e e e e)) ```
-```lisp\n ((4 A) B (2 C) (2 A) D (4 E)) ```
+```lisp
+ (encode-modified '(a a a a b c c a a d e e e e)) 
+```
+```lisp
+ ((4 A) B (2 C) (2 A) D (4 E)) 
+```
 #### P12 (**) Decode a run-length encoded list.
 Given a run-length code list generated as specified in problem P11. Construct its uncompressed version.
 #### P13 (**) Run-length encoding of a list (direct solution).
 Implement the so-called run-length encoding data compression method directly. I.e. don't explicitly create the sublists containing the duplicates, as in problem P09, but only count them. As in problem P11, simplify the result list by replacing the singleton lists (1 X) by X.
 
 Example:
-```lisp\n (encode-direct '(a a a a b c c a a d e e e e)) ```
-```lisp\n ((4 A) B (2 C) (2 A) D (4 E)) ```
+```lisp
+ (encode-direct '(a a a a b c c a a d e e e e)) 
+```
+```lisp
+ ((4 A) B (2 C) (2 A) D (4 E)) 
+```
 #### P14 (*) Duplicate the elements of a list.
 Example:
-```lisp\n (dupli '(a b c c d)) ```
-```lisp\n (A A B B C C C C D D) ```
+```lisp
+ (dupli '(a b c c d)) 
+```
+```lisp
+ (A A B B C C C C D D) 
+```
 #### P15 (**) Replicate the elements of a list a given number of times.
 Example:
-```lisp\n (repli '(a b c) 3) ```
-```lisp\n (A A A B B B C C C) ```
+```lisp
+ (repli '(a b c) 3) 
+```
+```lisp
+ (A A A B B B C C C) 
+```
 
 #### P16 (**) Drop every N'th element from a list.
 Example:
-```lisp\n (drop '(a b c d e f g h i k) 3) ```
-```lisp\n (A B D E G H K) ```
+```lisp
+ (drop '(a b c d e f g h i k) 3) 
+```
+```lisp
+ (A B D E G H K) 
+```
 #### P17 (*) Split a list into two parts; the length of the first part is given.
 Do not use any predefined predicates.
 
 Example:
-```lisp\n (split '(a b c d e f g h i k) 3) ```
-```lisp\n ( (A B C) (D E F G H I K)) ```
+```lisp
+ (split '(a b c d e f g h i k) 3) 
+```
+```lisp
+ ( (A B C) (D E F G H I K)) 
+```
 #### P18 (**) Extract a slice from a list.
 Given two indices, I and K, the slice is the list containing the elements between the I'th and K'th element of the original list (both limits included). Start counting the elements with 1.
 
 Example:
-```lisp\n (slice '(a b c d e f g h i k) 3 7) ```
-```lisp\n (C D E F G) ```
+```lisp
+ (slice '(a b c d e f g h i k) 3 7) 
+```
+```lisp
+ (C D E F G) 
+```
 #### P19 (**) Rotate a list N places to the left.
 Examples:
-```lisp\n (rotate '(a b c d e f g h) 3) ```
-```lisp\n (D E F G H A B C) ```
+```lisp
+ (rotate '(a b c d e f g h) 3) 
+```
+```lisp
+ (D E F G H A B C) 
+```
 
-```lisp\n (rotate '(a b c d e f g h) -2) ```
-```lisp\n (G H A B C D E F) ```
+```lisp
+ (rotate '(a b c d e f g h) -2) 
+```
+```lisp
+ (G H A B C D E F) 
+```
 
 Hint: Use the predefined functions length and append, as well as the result of problem P17.
 #### P20 (*) Remove the K'th element from a list.
 Example:
-```lisp\n (remove-at '(a b c d) 2) ```
-```lisp\n (A C D) ```
+```lisp
+ (remove-at '(a b c d) 2) 
+```
+```lisp
+ (A C D) 
+```
 #### P21 (*) Insert an element at a given position into a list.
 Example:
-```lisp\n (insert-at 'alfa '(a b c d) 2) ```
-```lisp\n (A ALFA B C D) ```
+```lisp
+ (insert-at 'alfa '(a b c d) 2) 
+```
+```lisp
+ (A ALFA B C D) 
+```
 #### P22 (*) Create a list containing all integers within a given range.
 If first argument is smaller than second, produce a list in decreasing order.
 Example:
-```lisp\n (range 4 9) ```
-```lisp\n (4 5 6 7 8 9) ```
+```lisp
+ (range 4 9) 
+```
+```lisp
+ (4 5 6 7 8 9) 
+```
 #### P23 (**) Extract a given number of randomly selected elements from a list.
 The selected items shall be returned in a list.
 Example:
-```lisp\n (rnd-select '(a b c d e f g h) 3) ```
-```lisp\n (E D A) ```
+```lisp
+ (rnd-select '(a b c d e f g h) 3) 
+```
+```lisp
+ (E D A) 
+```
 
 Hint: Use the built-in random number generator and the result of problem P20.
 #### P24 (*) Lotto: Draw N different random numbers from the set 1..M.
 The selected numbers shall be returned in a list.
 Example:
-```lisp\n (lotto-select 6 49) ```
-```lisp\n (23 1 17 33 21 37) ```
+```lisp
+ (lotto-select 6 49) 
+```
+```lisp
+ (23 1 17 33 21 37) 
+```
 
 Hint: Combine the solutions of problems P22 and P23.
 #### P25 (*) Generate a random permutation of the elements of a list.
 Example:
-```lisp\n (rnd-permu '(a b c d e f)) ```
-```lisp\n (B A D C E F) ```
+```lisp
+ (rnd-permu '(a b c d e f)) 
+```
+```lisp
+ (B A D C E F) 
+```
 
 Hint: Use the solution of problem P23.
 #### P26 (**) Generate the combinations of K distinct objects chosen from the N elements of a list
 In how many ways can a committee of 3 be chosen from a group of 12 people? We all know that there are C(12,3) = 220 possibilities (C(N,K) denotes the well-known binomial coefficients). For pure mathematicians, this result may be great. But we want to really generate all the possibilities in a list.
 
 Example:
-```lisp\n (combination 3 '(a b c d e f)) ```
-```lisp\n ((A B C) (A B D) (A B E) ... ) ```
+```lisp
+ (combination 3 '(a b c d e f)) 
+```
+```lisp
+ ((A B C) (A B D) (A B E) ... ) 
+```
 #### P27 (**) Group the elements of a set into disjoint subsets.
 a) In how many ways can a group of 9 people work in 3 disjoint subgroups of 2, 3 and 4 persons? Write a function that generates all the possibilities and returns them in a list.
 
 Example:
-```lisp\n (group3 '(aldo beat carla david evi flip gary hugo ida)) ```
-```lisp\n ( ( (ALDO BEAT) (CARLA DAVID EVI) (FLIP GARY HUGO IDA) ) ```
+```lisp
+ (group3 '(aldo beat carla david evi flip gary hugo ida)) 
+```
+```lisp
+ ( ( (ALDO BEAT) (CARLA DAVID EVI) (FLIP GARY HUGO IDA) ) 
+```
 ... )
 
 b) Generalize the above predicate in a way that we can specify a list of group sizes and the predicate will return a list of groups.
 
 Example:
-```lisp\n (group '(aldo beat carla david evi flip gary hugo ida) '(2 2 5)) ```
-```lisp\n ( ( (ALDO BEAT) (CARLA DAVID) (EVI FLIP GARY HUGO IDA) ) ```
+```lisp
+ (group '(aldo beat carla david evi flip gary hugo ida) '(2 2 5)) 
+```
+```lisp
+ ( ( (ALDO BEAT) (CARLA DAVID) (EVI FLIP GARY HUGO IDA) ) 
+```
 ... )
 
 Note that we do not want permutations of the group members; i.e. ((ALDO BEAT) ...) is the same solution as ((BEAT ALDO) ...). However, we make a difference between ((ALDO BEAT) (CARLA DAVID) ...) and ((CARLA DAVID) (ALDO BEAT) ...).
@@ -161,37 +259,53 @@ You may find more about this combinatorial problem in a good book on discrete ma
 a) We suppose that a list contains elements that are lists themselves. The objective is to sort the elements of this list according to their length. E.g. short lists first, longer lists later, or vice versa.
 
 Example:
-```lisp\n (lsort '((a b c) (d e) (f g h) (d e) (i j k l) (m n) (o))) ```
-```lisp\n ((O) (D E) (D E) (M N) (A B C) (F G H) (I J K L)) ```
+```lisp
+ (lsort '((a b c) (d e) (f g h) (d e) (i j k l) (m n) (o))) 
+```
+```lisp
+ ((O) (D E) (D E) (M N) (A B C) (F G H) (I J K L)) 
+```
 
 b) Again, we suppose that a list contains elements that are lists themselves. But this time the objective is to sort the elements of this list according to their length frequency; i.e., in the default, where sorting is done ascendingly, lists with rare lengths are placed first, others with a more frequent length come later.
 
 Example:
-```lisp\n (lfsort '((a b c) (d e) (f g h) (d e) (i j k l) (m n) (o))) ```
-```lisp\n ((i j k l) (o) (a b c) (f g h) (d e) (d e) (m n)) ```
+```lisp
+ (lfsort '((a b c) (d e) (f g h) (d e) (i j k l) (m n) (o))) 
+```
+```lisp
+ ((i j k l) (o) (a b c) (f g h) (d e) (d e) (m n)) 
+```
 
 Note that in the above example, the first two lists in the result have length 4 and 1, both lengths appear just once. The third and forth list have length 3 which appears twice (there are two list of this length). And finally, the last three lists have length 2. This is the most frequent length.
 Arithmetic
 
 #### P31 (**) Determine whether a given integer number is prime.
 Example:
-```lisp\n (is-prime 7) ```
+```lisp
+ (is-prime 7) 
+```
 T
 #### P32 (**) Determine the greatest common divisor of two positive integer numbers.
 Use Euclid's algorithm.
 Example:
-```lisp\n (gcd 36 63) ```
+```lisp
+ (gcd 36 63) 
+```
 9
 #### P33 (*) Determine whether two positive integer numbers are coprime.
 Two numbers are coprime if their greatest common divisor equals 1.
 Example:
-```lisp\n (coprime 35 64) ```
+```lisp
+ (coprime 35 64) 
+```
 T
 #### P34 (**) Calculate Euler's totient function phi(m).
 Euler's so-called totient function phi(m) is defined as the number of positive integers r (1 <= r < m) that are coprime to m.
 Example: m = 10: r = 1,3,7,9; thus phi(m) = 4. Note the special case: phi(1) = 1.
 
-```lisp\n (totient-phi 10) ```
+```lisp
+ (totient-phi 10) 
+```
 4
 
 Find out what the value of phi(m) is if m is a prime number. Euler's totient function plays an important role in one of the most widely used public key cryptography methods (RSA). In this exercise you should use the most primitive method to calculate this function (there are smarter ways that we shall discuss later).
@@ -199,13 +313,21 @@ Find out what the value of phi(m) is if m is a prime number. Euler's totient fun
 #### P35 (**) Determine the prime factors of a given positive integer.
 Construct a flat list containing the prime factors in ascending order.
 Example:
-```lisp\n (prime-factors 315) ```
-```lisp\n (3 3 5 7) ```
+```lisp
+ (prime-factors 315) 
+```
+```lisp
+ (3 3 5 7) 
+```
 #### P36 (**) Determine the prime factors of a given positive integer (2).
 Construct a list containing the prime factors and their multiplicity.
 Example:
-```lisp\n (prime-factors-mult 315) ```
-```lisp\n ((3 2) (5 1) (7 1)) ```
+```lisp
+ (prime-factors-mult 315) 
+```
+```lisp
+ ((3 2) (5 1) (7 1)) 
+```
 Hint: The problem is similar to problem P13.
 
 #### P37 (**) Calculate Euler's totient function phi(m) (improved).
@@ -221,13 +343,19 @@ Given a range of integers by its lower and upper limit, construct a list of all 
 #### P40 (**) Goldbach's conjecture.
 Goldbach's conjecture says that every positive even number greater than 2 is the sum of two prime numbers. Example: 28 = 5 + 23. It is one of the most famous facts in number theory that has not been proved to be correct in the general case. It has been numerically confirmed up to very large numbers (much larger than we can go with our Prolog system). Write a predicate to find the two prime numbers that sum up to a given even integer.
 Example:
-```lisp\n (goldbach 28) ```
-```lisp\n (5 23) ```
+```lisp
+ (goldbach 28) 
+```
+```lisp
+ (5 23) 
+```
 
 #### P41 (**) A list of Goldbach compositions.
 Given a range of integers by its lower and upper limit, print a list of all even numbers and their Goldbach composition.
 Example:
-```lisp\n (goldbach-list 9 20) ```
+```lisp
+ (goldbach-list 9 20) 
+```
 10 = 3 + 7
 12 = 5 + 7
 14 = 3 + 11
@@ -238,7 +366,9 @@ Example:
 In most cases, if an even number is written as the sum of two prime numbers, one of them is very small. Very rarely, the primes are both bigger than say 50. Try to find out how many such cases there are in the range 2..3000.
 
 Example (for a print limit of 50):
-```lisp\n (goldbach-list 1 2000 50) ```
+```lisp
+ (goldbach-list 1 2000 50) 
+```
 992 = 73 + 919
 1382 = 61 + 1321
 1856 = 67 + 1789
@@ -253,7 +383,9 @@ A logical expression in two variables can then be written in prefix notation, as
 Now, write a predicate table/3 which prints the truth table of a given logical expression in two variables.
 
 Example:
-```lisp\n table(A,B,and(A,or(A,B))). ```
+```lisp
+ table(A,B,and(A,or(A,B))). 
+```
 true true true
 true fail true
 fail true fail
@@ -262,7 +394,9 @@ fail fail fail
 #### P47 (*) Truth tables for logical expressions (2).
 Continue problem P46 by defining and/2, or/2, etc as being operators. This allows to write the logical expression in the more natural way, as in the example: A and (A or not B). Define operator precedence as usual; i.e. as in Java.
 Example:
-```lisp\n table(A,B, A and (A or not B)). ```
+```lisp
+ table(A,B, A and (A or not B)). 
+```
 true true true
 true fail true
 fail true fail
@@ -271,7 +405,9 @@ fail fail fail
 #### P48 (**) Truth tables for logical expressions (3).
 Generalize problem P47 in such a way that the logical expression may contain any number of logical variables. Define table/2 in a way that table(List,Expr) prints the truth table for the expression Expr, which contains the logical variables enumerated in List.
 Example:
-```lisp\n table([A,B,C], A and (B or C) equ A and B or A and C). ```
+```lisp
+ table([A,B,C], A and (B or C) equ A and B or A and C). 
+```
 true true true true
 true true fail true
 true fail true true
@@ -314,16 +450,22 @@ You can check your predicates using these example trees. They are given as test 
 #### P54A (*) Check whether a given term represents a binary tree
 Write a predicate istree which returns true if and only if its argument is a list representing a binary tree.
 Example:
-```lisp\n (istree (a (b nil nil) nil)) ```
+```lisp
+ (istree (a (b nil nil) nil)) 
+```
 T
-```lisp\n (istree (a (b nil nil))) ```
+```lisp
+ (istree (a (b nil nil))) 
+```
 NIL
 #### P55 (**) Construct completely balanced binary trees
 In a completely balanced binary tree, the following property holds for every node: The number of nodes in its left subtree and the number of nodes in its right subtree are almost equal, which means their difference is not greater than one.
 
 Write a function cbal-tree to construct completely balanced binary trees for a given number of nodes. The predicate should generate all solutions via backtracking. Put the letter 'x' as information into all nodes of the tree.
 Example:
-```lisp\n cbal-tree(4,T). ```
+```lisp
+ cbal-tree(4,T). 
+```
 T = t(x, t(x, nil, nil), t(x, nil, t(x, nil, nil))) ;
 T = t(x, t(x, nil, nil), t(x, t(x, nil, nil), nil)) ;
 etc......No
@@ -332,18 +474,26 @@ Let us call a binary tree symmetric if you can draw a vertical line through the 
 #### P57 (**) Binary search trees (dictionaries)
 Use the predicate add/3, developed in chapter 4 of the course, to write a predicate to construct a binary search tree from a list of integer numbers.
 Example:
-```lisp\n construct([3,2,5,7,1],T). ```
+```lisp
+ construct([3,2,5,7,1],T). 
+```
 T = t(3, t(2, t(1, nil, nil), nil), t(5, nil, t(7, nil, nil)))
 
 Then use this predicate to test the solution of the problem P56.
 Example:
-```lisp\n test-symmetric([5,3,18,1,4,12,21]). ```
+```lisp
+ test-symmetric([5,3,18,1,4,12,21]). 
+```
 Yes
-```lisp\n test-symmetric([3,2,5,7,1]). ```
+```lisp
+ test-symmetric([3,2,5,7,1]). 
+```
 No
 #### P58 (**) Generate-and-test paradigm
 Apply the generate-and-test paradigm to construct all symmetric, completely balanced binary trees with a given number of nodes. Example:
-```lisp\n sym-cbal-trees(5,Ts). ```
+```lisp
+ sym-cbal-trees(5,Ts). 
+```
 Ts = [t(x, t(x, nil, t(x, nil, nil)), t(x, t(x, nil, nil), nil)), t(x, t(x, t(x, nil, nil), nil), t(x, nil, t(x, nil, nil)))] 
 
 How many such trees are there with 57 nodes? Investigate about how many solutions there are for a given number of nodes? What if the number is even? Write an appropriate predicate.
@@ -352,7 +502,9 @@ In a height-balanced binary tree, the following property holds for every node: T
 
 Write a predicate hbal-tree/2 to construct height-balanced binary trees for a given height. The predicate should generate all solutions via backtracking. Put the letter 'x' as information into all nodes of the tree.
 Example:
-```lisp\n hbal-tree(3,T). ```
+```lisp
+ hbal-tree(3,T). 
+```
 T = t(x, t(x, t(x, nil, nil), t(x, nil, nil)), t(x, t(x, nil, nil), t(x, nil, nil))) ;
 T = t(x, t(x, t(x, nil, nil), t(x, nil, nil)), t(x, t(x, nil, nil), nil)) ;
 etc......No
@@ -361,12 +513,16 @@ Consider a height-balanced binary tree of height H. What is the maximum number o
 Clearly, MaxN = 2**H - 1. However, what is the minimum number MinN? This question is more difficult. Try to find a recursive statement and turn it into a predicate minNodes/2 defined as follwos:
 
 % minNodes(H,N) :- N is the minimum number of nodes in a height-balanced binary tree of height H.
-```lisp\n (integer,integer), (+,?) ```
+```lisp
+ (integer,integer), (+,?) 
+```
 
 On the other hand, we might ask: what is the maximum height H a height-balanced binary tree with N nodes can have?
 
 % maxHeight(N,H) :- H is the maximum height of a height-balanced binary tree with N nodes
-```lisp\n (integer,integer), (+,?) ```
+```lisp
+ (integer,integer), (+,?) 
+```
 
 Now, we can attack the main problem: construct all the height-balanced binary trees with a given nuber of nodes.
 
@@ -466,13 +622,17 @@ T = t(a,[t(f,[t(g,[])]),t(c,[]),t(b,[t(d,[]),t(e,[])])])
 #### P70B (*) Check whether a given term represents a multiway tree
 Write a predicate istree/1 which succeeds if and only if its argument is a Prolog term representing a multiway tree.
 Example:
-```lisp\n istree(t(a,[t(f,[t(g,[])]),t(c,[]),t(b,[t(d,[]),t(e,[])])])). ```
+```lisp
+ istree(t(a,[t(f,[t(g,[])]),t(c,[]),t(b,[t(d,[]),t(e,[])])])). 
+```
 Yes
 
 #### P70C (*) Count the nodes of a multiway tree
 Write a predicate nnodes/1 which counts the nodes of a given multiway tree.
 Example:
-```lisp\n nnodes(t(a,[t(f,[])]),N). ```
+```lisp
+ nnodes(t(a,[t(f,[])]),N). 
+```
 N = 2
 
 Write another version of the predicate that allows for a flow pattern (o,i).
@@ -495,7 +655,9 @@ The following pictures show how multiway tree structures are represented in Lisp
 Note that in the "lispy" notation a node with successors (children) in the tree is always the first element in a list, followed by its children. The "lispy" representation of a multiway tree is a sequence of atoms and parentheses '(' and ')', which we shall collectively call "tokens". We can represent this sequence of tokens as a Prolog list; e.g. the lispy expression (a (b c)) could be represented as the Prolog list ['(', a, '(', b, c, ')', ')']. Write a predicate tree-ltl(T,LTL) which constructs the "lispy token list" LTL if the tree is given as term T in the usual Prolog notation.
 
 Example:
-```lisp\n tree-ltl(t(a,[t(b,[]),t(c,[])]),LTL). ```
+```lisp
+ tree-ltl(t(a,[t(b,[]),t(c,[])]),LTL). 
+```
 LTL = ['(', a, '(', b, c, ')', ')']
 As a second, even more interesting exercise try to rewrite tree-ltl/2 in a way that the inverse conversion is also possible: Given the list LTL, construct the Prolog tree T. Use difference lists.
 
