@@ -5,6 +5,10 @@ L-99 From the Ninety Nine Luisp Problems Collection Found here [[L-99 Problems](
 
 Prolog problem list by werner.hett@hti.bfh.ch
 
+
+## To run the code :
+ ```lein test```
+
 ## Problems.
 
 #### Working with lists
