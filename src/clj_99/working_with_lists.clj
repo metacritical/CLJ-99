@@ -1,4 +1,5 @@
-(ns clj-99.working-with-lists)
+(ns clj-99.working-with-lists
+  (:require [clojure.test :refer :all]))
 
 (defn my-last
   "Last element in the list."
@@ -13,3 +14,30 @@
   (if (empty? (rest lst))
     (first lst)
     (my-last-2 (rest lst))))
+
+(defn but-my-last
+    "Find the last but one box of a list"
+  [lst]
+  (let [[a b & c] (into [] (reverse lst))]
+    (list b a)))
+
+(defn element-at
+  "Find the K'th element of a list."
+  [lst numb]
+  ((into [] lst) (dec numb)))
+
+(defn element-at-k
+  "Another way of doing K'th element of a list."
+  [lst numb]
+  (loop [count 1 list lst]
+    (if (= count numb)
+      (first list)
+      (recur (inc count) (rest list)))))
+
+(defn element-at-k-2
+  "Another way of doing k'th element of a list."
+  [lst numb]
+  (if (= numb 1)
+    (first lst)
+    (recur (rest lst) (dec numb))))
+
