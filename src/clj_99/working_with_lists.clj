@@ -16,7 +16,7 @@
     (my-last-2 (rest lst))))
 
 (defn but-my-last
-    "Find the last but one box of a list"
+  "Find the last but one box of a list"
   [lst]
   (let [[a b & c] (into [] (reverse lst))]
     (list b a)))
@@ -35,9 +35,23 @@
       (recur (inc count) (rest list)))))
 
 (defn element-at-k-2
-  "Another way of doing k'th element of a list."
+  "Another way of doing K'th element of a list."
   [lst numb]
   (if (= numb 1)
     (first lst)
     (recur (rest lst) (dec numb))))
 
+(defn elem-count
+  "Find the number of elements of a list."
+  [lst]
+  (if (empty? lst)
+    0
+    (+ 1 (elem-count (rest lst)))))
+
+(defn elem-count-2
+  "Find the number of elements of a list."
+  [lst]
+  (loop [count 0 alist lst]
+    (if (empty? alist)
+      count
+      (recur (inc count)(rest alist)))))

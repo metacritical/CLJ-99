@@ -22,6 +22,13 @@
   (is (= 3 (element-at-k-2 '(1 2 3 4 5) 3)))
   (is (= :b (element-at-k-2 '(:a :b :c :d :e) 2))))
 
-
-
-
+(deftest number-of-elements-in-a-list
+  "Find the number of elements of a list"
+  (is (= 0 (elem-count '())))
+  (is (= 1 (elem-count '(1))))
+  (is (= 4 (elem-count '(1 2 3 4))))
+  (is (= 3 (elem-count '(:a :b :c))))
+  (is (= 0 (elem-count-2 '())))
+  (is (= 1 (elem-count-2 '(1))))
+  (is (= 4 (elem-count-2 '(1 2 3 4))))
+  (is (= 3 (elem-count-2 '(:a :b :c)))))
