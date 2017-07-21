@@ -1,6 +1,8 @@
 (ns clj-99.core)
 
-(defn foo
-  "I don't do a whole lot."
-  [x]
-  (println x "Hello, World!"))
+(defn -main
+  "99 Problems in clojure"
+  []
+  (println  "99 Problems in clojure"))
+
+
