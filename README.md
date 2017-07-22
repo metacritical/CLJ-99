@@ -1,4 +1,4 @@
-# CLJ-99 (Ninety Nine Problems in Clojure) (WIP)
+# CLJ-99 (Ninety Nine Problems in Clojure) (WIP) [![CircleCI](https://circleci.com/gh/metacritical/CLJ-99/tree/master.svg?style=svg)](https://circleci.com/gh/metacritical/CLJ-99/tree/master)
 
 CLJ-99 are a set of 99 Solved Problems in Clojure. The problem set in based on 
 L-99 From the Ninety Nine Luisp Problems Collection Found here [[L-99 Problems](http://www.ic.unicamp.br/~meidanis/courses/mc336/2006s2/funcional/L-99_Ninety-Nine_Lisp_Problems.html)] Which in turn in based on the original P-99 Prolog Problem set by the same name. [[P-99 Problems](http://www.ic.unicamp.br/~meidanis/courses/mc336/2009s2/prolog/problemas/)]
