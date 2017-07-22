@@ -55,3 +55,26 @@
     (if (empty? alist)
       count
       (recur (inc count)(rest alist)))))
+
+(defn simple-reverse-list
+  [lst]
+  (reverse lst))
+
+(defn reverse-list 
+  "Reverse the element of alist."
+  [lst]
+  (into '() lst))
+
+(defn reverse-list-2
+  "Reverse the elements of a list."
+  [lst]
+  (loop [new '() alist lst]
+    (if (empty? alist) 
+      new
+      (recur (conj new (first alist)) (rest alist)))))
+
+(defn palindrome-or-not 
+  "Find out whether a list is a palindrome."
+  [lst]
+  (= lst (reverse lst)))
+
