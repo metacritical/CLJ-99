@@ -78,3 +78,13 @@
   [lst]
   (= lst (reverse lst)))
 
+(defn dirty-flatten-list
+  "Flatten a nested list structure (Dirty Recursive Solution)."
+  [lst]
+  (if (empty? lst)
+    lst
+    (let [[first & rest] lst]
+      (if (seq? first)
+        (concat (dirty-flatten-list first) (dirty-flatten-list rest))
+        (concat (cons first nil) (dirty-flatten-list rest)))))) 
+
