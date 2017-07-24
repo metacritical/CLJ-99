@@ -88,3 +88,12 @@
         (concat (dirty-flatten-list first) (dirty-flatten-list rest))
         (concat (cons first nil) (dirty-flatten-list rest)))))) 
 
+(defn flatten-list
+  "Better solution to Flatten a nested list structure."
+  [lst]
+  (loop [new-list '() [first & rest] lst]
+    (if (isa? nil first)
+        (reverse new-list)
+        (if (seq? first)
+            (recur new-list (concat first rest))
+            (recur (cons first new-list) rest)))))

@@ -52,7 +52,6 @@
 (deftest list-flattener
   "Flatten a nested list."
   (is (= '(1 2 3 4 5) (dirty-flatten-list '(1 (2 3) 4 (5)))))
-  (is 
-   (= 
-    '(1 2 3 4 5 6 7 8 9) 
-    (dirty-flatten-list '(1 (2 (3 4) (5) 6) (7 (8 (9))))))))
+  (is (= '(1 2 3 4 5 6 7) (dirty-flatten-list '(1 (2 (3) 4) (5 (6 (7)))))))
+  (is (= '(1 2 3 4 5) (flatten-list '(1 (2 3) 4 (5)))))
+  (is (= '(1 2 3 4 5 6 7) (flatten-list '(1 (2 (3) 4) (5 (6 (7))))))))
