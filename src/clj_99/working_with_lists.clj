@@ -97,3 +97,13 @@
         (if (seq? first)
             (recur new-list (concat first rest))
             (recur (cons first new-list) rest)))))
+
+(defn compress 
+  "Eliminate consecutive duplicates of list elements."
+  [lst]
+  (loop [new-list '() [frst & rst] lst]
+    (if (nil? frst)
+      (reverse new-list)
+      (if (= (first new-list) frst)
+        (recur new-list rst)
+        (recur (cons frst new-list) rst)))))

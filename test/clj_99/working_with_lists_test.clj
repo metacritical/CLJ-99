@@ -55,3 +55,8 @@
   (is (= '(1 2 3 4 5 6 7) (dirty-flatten-list '(1 (2 (3) 4) (5 (6 (7)))))))
   (is (= '(1 2 3 4 5) (flatten-list '(1 (2 3) 4 (5)))))
   (is (= '(1 2 3 4 5 6 7) (flatten-list '(1 (2 (3) 4) (5 (6 (7))))))))
+
+(deftest compress-test
+  "Test removing duplicates of consecutive list items in a list"
+  (is (= (compress '(1 2 2 2 3 3 3 3 4 4 4 5 6 7 7 7 8 9 9)) '(1 2 3 4 5 6 7 8 9)))
+  (is (= (compress '(1 2 2 2 3 3 3 3 4 4 4 5 6 7 1 1 9 9)) '(1 2 3 4 5 6 7 1 9))))
