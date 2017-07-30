@@ -106,3 +106,10 @@
       (if (= (first new-list) frst)
         (recur new-list rst)
         (recur (cons frst new-list) rst)))))
+
+(defn pack
+  "Pack consecutive duplicates of list elements into sublists."
+  [lst]
+  (partition-by identity lst))
+
+

@@ -60,3 +60,31 @@
   "Test removing duplicates of consecutive list items in a list"
   (is (= (compress '(1 2 2 2 3 3 3 3 4 4 4 5 6 7 7 7 8 9 9)) '(1 2 3 4 5 6 7 8 9)))
   (is (= (compress '(1 2 2 2 3 3 3 3 4 4 4 5 6 7 1 1 9 9)) '(1 2 3 4 5 6 7 1 9))))
+
+(deftest pack-list-test
+  "Test to Pack consecutive duplicates of list elements into sublists."
+  (is (= (pack '(1 1 1 1 1 
+                 2 2 2 2 2 
+                 3 3 3 3 
+                 4 4 4 
+                 5 5 
+                 6 6 6 
+                 1
+                 2 2 
+                 1 1 1 
+                 3 3 3 3
+                 4 4
+                 5
+                 7)) '((1 1 1 1 1)
+                       (2 2 2 2 2)
+                       (3 3 3 3)
+                       (4 4 4)
+                       (5 5)
+                       (6 6 6)
+                       (1)
+                       (2 2)
+                       (1 1 1)
+                       (3 3 3 3)
+                       (4 4)
+                       (5)
+                       (7)))))
