@@ -23,7 +23,7 @@
 (defn element-at
   "Find the K'th element of a list."
   [lst numb]
-  ((into [] lst) (dec numb)))
+  ((into [] lst) (dec numb))) ;; Can also use (vec list) => [list] instead of into.
 
 (defn element-at-k
   "Another way of doing K'th element of a list."
@@ -112,4 +112,9 @@
   [lst]
   (partition-by identity lst))
 
-
+(defn encode
+  "Run-length encoding of a list."
+  [lst]
+  (->>
+   (partition-by identity lst)
+   (map #(list (count %) (first %)))))

@@ -88,3 +88,8 @@
                        (4 4)
                        (5)
                        (7)))))
+
+(deftest Run-length-encode-test
+  "Run-length encoding of a list."
+  (is (= (encode '(1 1 1 2 2 2 2 2 3 3 4 5 6 6 6 6 6 7 7))
+         '((3 1) (5 2) (2 3) (1 4) (1 5) (5 6) (2 7)))))
